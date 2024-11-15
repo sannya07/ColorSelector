@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Scheme Switcher</title>
+    <style>
+        /* General Reset */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            transition: background-color 0.5s ease;
+        }
+
+        /* Canvas Styling */
+        .canvas {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            max-width: 90%;
+            width: 400px;
+        }
+
+        h1 {
+            margin: 10px 0;
+            font-size: 2rem;
+            color: #333;
+        }
+
+        h2 {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            color: #555;
+        }
+
+        h2 span {
+            display: block;
+            font-size: 1rem;
+            margin-top: 10px;
+            color: #777;
+        }
+
+        /* Buttons Styling */
+        .button-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .button {
+            display: inline-block;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 3px solid #eee;
+            box-shadow: 0 5px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        /* Colors for Buttons */
+        #grey {
+            background-color: #808080;
+        }
+
+        #white {
+            background-color: #ffffff;
+            border: 3px solid #ddd;
+        }
+
+        #blue {
+            background-color: #007BFF;
+        }
+
+        #yellow {
+            background-color: #FFD700;
+        }
+
+        /* Button Hover Effects */
+        .button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
+            border-color: #333;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .button {
+                width: 70px;
+                height: 70px;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            h2 {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .button {
+                width: 60px;
+                height: 60px;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            h2 {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="canvas">
+        <h1>Color Scheme Switcher</h1>
+        <div class="button-container">
+            <span class="button" id="grey" title="Grey"></span>
+            <span class="button" id="white" title="White"></span>
+            <span class="button" id="blue" title="Blue"></span>
+            <span class="button" id="yellow" title="Yellow"></span>
+        </div>
+        <h2>
+            Try clicking on one of the colors above
+            <span>To change the background color of this page</span>
+        </h2>
+    </div>
+</body>
+<script>
+    const buttons = document.querySelectorAll('.button');
+    const body = document.querySelector("body");
+
+    buttons.forEach(function (button) {
+        button.addEventListener('click', function (e) {
+            body.style.backgroundColor = e.target.id;
+        });
+    });
+</script>
+</html>
